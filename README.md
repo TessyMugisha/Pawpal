@@ -78,7 +78,7 @@ Core scheduling behaviors are well covered. The main gap is duration-overlap det
 
 ## 📸 Demo
 
-<a href="C:\PythonProjects\pawPal\ai110-module2show-pawpal-starter\demo.png" target="_blank"><img src='C:\PythonProjects\pawPal\ai110-module2show-pawpal-starter\demo.png' title='PawPal App' width='' alt='PawPal App' class='center-block' /></a>
+<a href="demo.png" target="_blank"><img src='demo.png' title='PawPal App' width='' alt='PawPal App' class='center-block' /></a>
 
 ## Getting started
 
