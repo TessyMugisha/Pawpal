@@ -2,6 +2,8 @@ from datetime import date
 from pawpal_system import Owner, Pet, Task, Scheduler
 import streamlit as st
 
+PRIORITY_EMOJI = {1: "🔴 High", 2: "🟡 Medium", 3: "🟢 Low"}
+
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
 st.title("🐾 PawPal+")
 st.caption("A smart daily planner for busy pet owners.")
@@ -94,7 +96,7 @@ if st.session_state.owner.pets:
                 "Task": t.description,
                 "Duration": f"{t.duration} min",
                 "Frequency": t.frequency,
-                "Priority": t.priority,
+                "Priority": PRIORITY_EMOJI.get(t.priority, str(t.priority)),
                 "Time": t.time or "—",
                 "Status": t.status,
             }
@@ -129,11 +131,11 @@ if st.button("Generate schedule"):
             st.success(f"{len(scheduled)} task(s) scheduled for today.")
             st.table([
                 {
-                    "Pet": t.pet.name if t.pet else "—",
+                    "Priority": PRIORITY_EMOJI.get(t.priority, str(t.priority)),
                     "Task": t.description,
+                    "Pet": t.pet.name if t.pet else "—",
                     "Duration": f"{t.duration} min",
                     "Time": t.time or "—",
-                    "Priority": t.priority,
                 }
                 for t in scheduled
             ])
